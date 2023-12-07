@@ -19,9 +19,8 @@ workflows:
     scripts:
       - name: Install dependencies and Expo CLI, and eject app
         script: |
-          NODE_ENV="production"
           yarn install
-          yarn upgrade react-native-reanimated
+          yarn add react-native-reanimated
           yarn run expo prebuild --platform android
       - name: Set up app/build.gradle
         script: |
