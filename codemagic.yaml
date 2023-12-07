@@ -1,0 +1,57 @@
+workflows:
+  react-native-android:
+    name: React Native Android
+    max_build_duration: 20
+    instance_type: mac_mini_m1
+    environment:
+      android_signing:
+        - justui
+      vars:
+        PACKAGE_NAME: "id.my.khan.ui"
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: "master"
+          include: true
+          source: true
+      cancel_previous_builds: true
+    scripts:
+      - name: Install dependencies and Expo CLI, and eject app
+        script: |
+          NODE_ENV="production"
+          yarn install
+          yarn upgrade react-native-reanimated
+          yarn run expo prebuild --platform android
+      - name: Set up app/build.gradle
+        script: |
+          mv ./support-files/build.gradle android/app
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+      # - name: Build Android AAB release
+      #   script: |
+      #     cd android
+      #     ./gradlew bundleRelease \
+      #       -PversionCode=$PROJECT_BUILD_NUMBER \
+      #       -PversionName=0.0.$PROJECT_BUILD_NUMBER
+      - name: Build Android APK release
+        script: |
+          cd android && ./gradlew clean
+          ./gradlew assembleRelease \
+            -PversionCode=$PROJECT_BUILD_NUMBER \
+            -PversionName=0.0.$PROJECT_BUILD_NUMBER
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - hi@khan.my.id
+        notify:
+          success: true
+          failure: false
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: internal
+      #   submit_as_draft: true
