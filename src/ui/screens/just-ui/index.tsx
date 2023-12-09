@@ -13,6 +13,10 @@ const DATA = [
     route: "shared-element",
   },
   {
+    title: "Link Aja",
+    route: "link-aja",
+  },
+  {
     title: "Coming Soon",
     route: "coming-soon",
   },

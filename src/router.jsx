@@ -6,6 +6,7 @@ import {
   JustUIScreen,
   SharedElementScreen,
   SharedElementDetailScreen,
+  LinkAjaScreen,
 } from "./ui/screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -28,6 +29,7 @@ export const AppRouter = () => {
           name="shared-element-detail"
           component={SharedElementDetailScreen}
         />
+        <Stack.Screen name="link-aja" component={LinkAjaScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

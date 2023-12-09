@@ -9,7 +9,6 @@ interface Props {
   style?: ViewStyle;
   overflow?: Boolean;
 }
-
 export const Layout = (props: Props) => {
   return (
     <View
@@ -22,7 +21,7 @@ export const Layout = (props: Props) => {
       ]}
     >
       <StatusBar style="dark" backgroundColor="transparent" translucent />
-      {props.children}
+      <View>{props.children}</View>
     </View>
   );
 };
