@@ -113,32 +113,7 @@ export const LinkAjaScreen = () => {
 
   return (
     <Layout style={{ backgroundColor: "white" }}>
-      <Animated.FlatList
-        data={[]}
-        renderItem={() => <></>}
-        ListHeaderComponent={
-          <View
-            style={{
-              height: walletHeight + paymentHeight,
-            }}
-          >
-            <Header />
-            <Wallet />
-            <Payment />
-          </View>
-        }
-        ListFooterComponent={
-          <View
-            style={{
-              width,
-              padding: 16,
-              height: height,
-              backgroundColor: "white",
-            }}
-          >
-            <Text>Content</Text>
-          </View>
-        }
+      <Animated.ScrollView
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: scrollY } } }],
@@ -146,7 +121,27 @@ export const LinkAjaScreen = () => {
             useNativeDriver: true,
           }
         )}
-      />
+      >
+        <View
+          style={{
+            height: walletHeight + paymentHeight,
+          }}
+        >
+          <Header />
+          <Wallet />
+          <Payment />
+        </View>
+        <View
+          style={{
+            width,
+            padding: 16,
+            height,
+            backgroundColor: "white",
+          }}
+        >
+          <Text>Content</Text>
+        </View>
+      </Animated.ScrollView>
     </Layout>
   );
 };
