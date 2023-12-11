@@ -21,7 +21,13 @@ export const Layout = (props: Props) => {
       ]}
     >
       <StatusBar style="dark" backgroundColor="transparent" translucent />
-      <View>{props.children}</View>
+      <View
+        style={{
+          flex: 1,
+        }}
+      >
+        {props.children}
+      </View>
     </View>
   );
 };

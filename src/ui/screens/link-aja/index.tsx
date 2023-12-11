@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Animated, Text, Image, View, Pressable, FlatList } from "react-native";
+import { Animated, Text, Image, View, Pressable } from "react-native";
 import { Layout } from "../../components";
 import { height, navigator, width } from "../../../helpers";
 import { Feather } from "@expo/vector-icons";
@@ -14,18 +14,15 @@ export const LinkAjaScreen = () => {
   const translateHeader = scrollY.interpolate({
     inputRange: [0, walletHeight + paymentHeight],
     outputRange: [0, walletHeight + paymentHeight],
-    extrapolate: "clamp",
   });
 
   const translateWallet = scrollY.interpolate({
     inputRange: [0, walletHeight + paymentHeight],
     outputRange: [0, headerHeight + walletHeight - 16],
-    extrapolate: "clamp",
   });
   const translatePayment = scrollY.interpolate({
     inputRange: [0, walletHeight + paymentHeight],
     outputRange: [0, paymentHeight],
-    extrapolate: "clamp",
   });
 
   const Header = () => (
@@ -116,7 +113,7 @@ export const LinkAjaScreen = () => {
 
   return (
     <Layout style={{ backgroundColor: "white" }}>
-      <FlatList
+      <Animated.FlatList
         data={[]}
         renderItem={() => <></>}
         ListHeaderComponent={
@@ -135,7 +132,7 @@ export const LinkAjaScreen = () => {
             style={{
               width,
               padding: 16,
-              height: height * 2,
+              height: height,
               backgroundColor: "white",
             }}
           >
@@ -143,11 +140,10 @@ export const LinkAjaScreen = () => {
           </View>
         }
         showsVerticalScrollIndicator={false}
-        scrollEventThrottle={16}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: scrollY } } }],
           {
-            useNativeDriver: false,
+            useNativeDriver: true,
           }
         )}
       />
