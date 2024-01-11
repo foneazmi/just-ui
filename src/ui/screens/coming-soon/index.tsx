@@ -1,8 +1,8 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
-import { Layout } from "../../components";
-import { navigator } from "../../../helpers";
 import { Feather } from "@expo/vector-icons";
+import { Layout } from "~/ui/components";
+import { navigator } from "~/helpers";
 
 export const ComingSoonScreen = () => {
   return (

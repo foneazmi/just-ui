@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Animated, Text, Image, View, Pressable } from "react-native";
-import { Layout } from "../../components";
-import { height, navigator, width } from "../../../helpers";
+import { Layout } from "~/ui/components";
+import { height, navigator, width } from "~/helpers";
 import { Feather } from "@expo/vector-icons";
 
 const headerHeight = 50;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Pressable, Text, View } from "react-native";
-import { Layout } from "../../components";
-import { navigator, width } from "../../../helpers";
+import { Layout } from "~/ui/components";
+import { navigator, width } from "~/helpers";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import Animated, {
   useAnimatedStyle,

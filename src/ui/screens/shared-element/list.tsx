@@ -1,7 +1,7 @@
 import React from "react";
-import { FlatList, Image, Pressable, Text, View } from "react-native";
-import { Layout } from "../../components";
-import { navigator } from "../../../helpers";
+import { FlatList, Pressable, Text, View } from "react-native";
+import { Layout } from "~/ui/components";
+import { navigator } from "~/helpers";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import Animated from "react-native-reanimated";
 

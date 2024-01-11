@@ -1,20 +1,24 @@
 import React from "react";
 import { FlatList, Pressable, Text } from "react-native";
-import { Layout } from "../../components";
-import { navigator } from "../../../helpers";
+import { Layout } from "~/ui/components";
+import { navigator } from "~/helpers";
 
 const DATA = [
+  // {
+  //   title: "Hello Animation",
+  //   route: "hello-animation",
+  // },
+  // {
+  //   title: "Shared Element",
+  //   route: "shared-element",
+  // },
   {
-    title: "Hello Animation",
-    route: "hello-animation",
-  },
-  {
-    title: "Shared Element",
-    route: "shared-element",
-  },
-  {
-    title: "Link Aja",
+    title: "Link Aja (Old UI)",
     route: "link-aja",
+  },
+  {
+    title: "Shopping Store",
+    route: "shopping-store",
   },
   {
     title: "Coming Soon",

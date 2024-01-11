@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, Button, Pressable } from "react-native";
-import { Layout } from "../../components";
-import { navigator } from "../../../helpers";
+import { Layout } from "~/ui/components";
+import { navigator } from "~/helpers";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 import { Feather } from "@expo/vector-icons";
 
