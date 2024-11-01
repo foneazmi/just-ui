@@ -1,40 +1,37 @@
 {
   "expo": {
-    "name": "JustUI",
-    "slug": "JustUI",
+    "name": "just-ui",
+    "slug": "just-ui",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "id.my.khan.ui"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "id.my.khan.ui"
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-secure-store"
+      "expo-router",
+      "expo-font"
     ],
-    "extra": {
-      "eas": {
-        "projectId": "3eb56027-9067-4e9f-bdf4-81bf897710b3"
-      }
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
