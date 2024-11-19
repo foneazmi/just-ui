@@ -1,13 +1,10 @@
-import { router } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { AppList } from "@/components/app-icon";
+import { SafeAreaView } from "react-native";
 
-export default function HomeScreen() {
+export default function () {
   return (
-    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-      <Text>Just UI</Text>
-      <Pressable onPress={() => router.navigate("/")}>
-        <Text>Click</Text>
-      </Pressable>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <AppList />
+    </SafeAreaView>
   );
 }
