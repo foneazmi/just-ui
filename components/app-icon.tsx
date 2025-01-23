@@ -1,33 +1,40 @@
 import { width } from "@/utils/size";
-import { router } from "expo-router";
-import { FlatList, Pressable, Text, View } from "react-native";
+import { Href, RelativePathString, router } from "expo-router";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 
 const NUM_COLUMNS = 4;
 const APP_SIZE = width / NUM_COLUMNS - 16;
 
-export const AppIcon = () => (
+export type AppIconProps = {
+  label: string;
+  path: Href;
+  icon: string;
+};
+export const AppIcon = ({ label, path, icon }: AppIconProps) => (
   <Pressable
-    onPress={() => router.navigate("/lorem")}
+    onPress={() => router.navigate(path)}
     style={{
       height: APP_SIZE,
       width: APP_SIZE,
       margin: 6,
-      backgroundColor: "#00000010",
+      // backgroundColor: "#00000010",
       borderRadius: 10,
       justifyContent: "center",
       alignItems: "center",
     }}
   >
-    <Text>App Name</Text>
+    <Image source={{ uri: icon }} style={{ height: 50, width: 50 }} />
+    <Text>{label}</Text>
   </Pressable>
 );
 
-export const AppList = () => (
-  <View style={{ alignItems: "center", flex: 1 }}>
+export const AppList = ({ data }: { data: AppIconProps[] }) => (
+  <View style={{ flex: 1, padding: 8 }}>
     <FlatList
-      data={[1, 2, 3, 4, 5, 6]}
+      data={data}
       numColumns={NUM_COLUMNS}
-      renderItem={() => <AppIcon />}
+      keyExtractor={(item) => item.label}
+      renderItem={({ item }) => <AppIcon {...item} />}
     />
   </View>
 );
