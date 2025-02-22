@@ -1,5 +1,5 @@
 import { width } from "@/utils/size";
-import { Href, RelativePathString, router } from "expo-router";
+import { Href, router } from "expo-router";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
 
 const NUM_COLUMNS = 4;
@@ -17,7 +17,6 @@ export const AppIcon = ({ label, path, icon }: AppIconProps) => (
       height: APP_SIZE,
       width: APP_SIZE,
       margin: 6,
-      // backgroundColor: "#00000010",
       borderRadius: 10,
       justifyContent: "center",
       alignItems: "center",
